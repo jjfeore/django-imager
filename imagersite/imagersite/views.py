@@ -5,9 +5,11 @@ from django.shortcuts import render
 
 
 def home_view(request):
-    """Return the home view."""
-    context = {
-        'stuff': 'Put this in the page',
-        'page': 'Home'
-    }
-    return render(request, 'imagersite/home.html', content=context)
+    """Home view callable, for the home page."""
+    context = {'page': ' | Home'}
+    return render(request, 'imagersite/home.html', context=context)
+
+
+def account_view(request):
+    """User account profile view."""
+    return render(request, 'imagersite/account.html')
