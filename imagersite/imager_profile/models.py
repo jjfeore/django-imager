@@ -24,7 +24,7 @@ class ImagerProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=255, default='Seattle, WA')
-    age = models.IntegerField(default='25')
+    age = models.IntegerField(default=25)
     camera_type = models.CharField(max_length=255, default='Polaroid')
     job = models.CharField(max_length=255, default='Developer')
     url = models.URLField(max_length=200, default='github.com/jjfeore')
