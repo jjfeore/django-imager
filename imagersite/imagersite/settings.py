@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'imagersite',
     'imager_profile',
-    'registration'
+    'registration',
+    'imager_images'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'MEDIA')

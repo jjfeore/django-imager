@@ -41,7 +41,7 @@ class Album(models.Model):
         choices=SHARING_CHOICES,
         default='private',
     )
-    photoset = models.ManyToManyField('Photo', related_name='in_album')
+    photoset = models.ManyToManyField(Photo, related_name='in_album')
     cover = models.ImageField(upload_to='photos', null=True)
     created_by = models.ForeignKey('imager_profile.ImagerProfile', on_delete=models.CASCADE, related_name='albums')
 
