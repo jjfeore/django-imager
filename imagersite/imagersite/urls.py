@@ -23,7 +23,9 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^$', home_view, name="home"),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^profile/', include('imager_profile.urls')),
+    url(r'^images/', include('imager_images.urls')),
     url(r'^accounts/', include('registration.backends.hmac.urls')),
     url(r'^login/$', auth_views.login, {'template_name': 'registration/login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
