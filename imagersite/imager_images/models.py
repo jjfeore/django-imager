@@ -37,7 +37,7 @@ class Album(models.Model):
     published = models.CharField(
         max_length=3,
         choices=SHARING_CHOICES,
-        default='private',
+        default='PRI',
     )
     photoset = models.ManyToManyField(Photo, related_name='in_album')
     cover = models.ImageField(upload_to='photos', null=True)
