@@ -29,7 +29,7 @@ def library_view(request):
 def photos_view(request):
     """Display all the user's photos."""
     if request.user.is_authenticated():
-        photos = Photo.published_photos.all
+        photos = Photo.objects.all().filter(owner=request.user)
         return render(request, "imager_images/photos.html", {"photos": photos})
     return HttpResponseForbidden()
 
@@ -44,7 +44,7 @@ def photo_detail_view(request, pk):
 def albums_view(request):
     """Display all the user's albums."""
     if request.user.is_authenticated():
-        albums = Album.published_albums.filter(owner=request.user)
+        albums = Album.objects.all().filter(owner=request.user)
         return render(request, "imager_images/albums.html", {"albums": albums})
 
 
@@ -52,5 +52,5 @@ def album_detail_view(request, pk):
     """Display detail view for a single album."""
     if request.user.is_authenticated():
         album = Album.objects.get(pk=pk)
-        photos = album.pictures.all()
+        photos = album.in_album.all()
         return render(request, "imager_images/album_detail.html", {"photos": photos, "album": album})

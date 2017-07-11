@@ -6,7 +6,7 @@ from imager_images.models import Photo
 
 
 def home_view(request):
-    """Home view callable, for the home page."""=
+    """Home view callable, for the home page."""
     count = Photo.objects.count()
     r_num = randint(0, count - 1)
     try:

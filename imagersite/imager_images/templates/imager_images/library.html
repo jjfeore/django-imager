@@ -1,14 +1,18 @@
 {% extends 'imagersite/base.html' %}
 {% load thumbnail %}
 {% block body %}
-    <h3>{{user.username}}'s Image Library</h3>
-    <h5>Albums:</h5>
+    <h2>{{ user.username }}'s Image Library</h2>
+    <h3>Albums:</h3>
     <ul class="thumbList">
         {% for album in albums %}
         <li>
-            {% thumbnail album.album_cover.image "100x100" crop="center" as im %}
+            {% if album.cover.image %}
+                {% thumbnail album.cover.image "100x100" crop="center" as im %}
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-            {% endthumbnail %}
+                {% endthumbnail %}
+            {% else %}
+                <img src="http://placehold.it/100x100" alt="No Cover">
+            {% endif %}
             <a href="{% url 'imager_images:album' album.id %}">{{album.title}}</a>
         {% endfor %}
         </li>
@@ -21,7 +25,7 @@
                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
             {% endthumbnail %}
 
-            <a href="{% url 'imager_images:photo' photo.id %}">{{photo.title}}</a>
+            <a href="{% url 'imager_images:photo' photo.id %}">{{ photo.title }}</a>
         {% endfor %}
         </li>
     </ul>
