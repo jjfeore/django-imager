@@ -1,5 +1,5 @@
 from django.db import models
-import uuid
+from django.contrib.auth.models import User
 import datetime
 
 # Create your models here.
@@ -9,6 +9,7 @@ SHARING_CHOICES = (
     ('SHA', 'shared'),
     ('PUB', 'public')
 )
+
 
 class Photo(models.Model):
     title = models.CharField(max_length=100)
@@ -22,7 +23,7 @@ class Photo(models.Model):
         default='PRI',
     )
     image = models.ImageField(upload_to='photos', null=True)
-    uploaded_by = models.ForeignKey('imager_profile.ImagerProfile', on_delete=models.CASCADE, related_name='photos')
+    uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='photos')
 
     def __repr__(self):
         return "<Photo: {}>".format(self.title)
@@ -41,7 +42,7 @@ class Album(models.Model):
     )
     photoset = models.ManyToManyField(Photo, related_name='in_album')
     cover = models.ImageField(upload_to='photos', null=True)
-    created_by = models.ForeignKey('imager_profile.ImagerProfile', on_delete=models.CASCADE, related_name='albums')
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='albums')
 
     def __repr__(self):
         return "<Album: {}>".format(self.title)

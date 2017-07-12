@@ -1,7 +1,7 @@
 body {
   /*font-size: 3vw;*/
-  background-color:cornsilk;
-  color:cornsilk;
+  background-color:#888;
+  color:#444;
 }
 
 h1 {
@@ -22,5 +22,5 @@ main {
 }
 
 article {
-    background-color: #211702;
+    background-color: #FFF;
 }

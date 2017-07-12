@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="{% static '/imagersite/style/modules.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/imagersite/style/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static '/imagersite/style/layouts.css' %}">
     <title>PeasantGram{{ page }}</title>
@@ -20,6 +19,7 @@
             <li class="tab"><a href="{% url 'imager_images:library' %}" class="icon-home"> Library</a></li>
             <li class="tab"><a href="{% url 'logout' %}" class="icon-home"> Logout</a></li>
           {% else %}
+            <li class="tab"><a href="{% url 'registration_register' %}" class="icon-home">Register</a></li>
             <li class="tab"><a href="{% url 'login' %}" class="icon-home"> Login</a></li>
           {% endif %}
         </ul>

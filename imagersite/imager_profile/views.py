@@ -14,7 +14,7 @@ def profile_view(request):
     albums = Album.objects.all().filter(created_by=user)
     albums_pri = albums.filter(published='PRI').count()
     albums_pub = albums.filter(published='PUB').count()
-    photos = Photo.objects.all().filter(created_by=user)
+    photos = Photo.objects.all().filter(uploaded_by=user)
     photos_pri = photos.filter(published='PRI').count()
     photos_pub = photos.filter(published='PUB').count()
     return render(request, "imager_profile/profile.html", {
@@ -32,7 +32,7 @@ def other_profile_view(request, other_user):
     user = User.objects.all().filter(username=other_user).first()
     albums = Album.objects.all().filter(created_by=user)
     albums_pub = albums.filter(published='PUB').count()
-    photos = Photo.objects.all().filter(created_by=user)
+    photos = Photo.objects.all().filter(uploaded_by=user)
     photos_pub = photos.filter(published='PUB').count()
     return render(request, "imager_profile/profile.html", {
         "the_user": user,

@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'imagersite',
     'imager_profile',
     'registration',
-    'imager_images'
+    'imager_images',
+    'sorl.thumbnail'
 ]
 
 MIDDLEWARE = [
