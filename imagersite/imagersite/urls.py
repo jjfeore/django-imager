@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from imagersite.views import home_view
+from imagersite.views import HomeView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    url(r'^$', home_view, name="home"),
+    url(r'^$', HomeView.as_view(), name="home"),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^profile/', include('imager_profile.urls')),
     url(r'^images/', include('imager_images.urls')),

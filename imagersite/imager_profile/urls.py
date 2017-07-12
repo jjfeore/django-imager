@@ -2,12 +2,12 @@
 
 
 from django.conf.urls import url
-from . import views
+from imager_profile.views import ProfileView, OtherProfileView
 
 
 app_name = 'imager_profile'
 
 urlpatterns = [
-    url(r'^$', views.profile_view, name="profile"),
-    url(r'^(?P<other_user>[\w.@+]+)/$', views.other_profile_view, name="other_profile")
+    url(r'^$', ProfileView.as_view(), name="profile"),
+    url(r'^(?P<other_user>[\w.@+]+)/$', OtherProfileView.as_view(), name="other_profile")
 ]
