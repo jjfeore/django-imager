@@ -41,7 +41,7 @@ class Album(models.Model):
         default='PRI',
     )
     photoset = models.ManyToManyField(Photo, related_name='in_album')
-    cover = models.ImageField(upload_to='photos', null=True)
+    cover = models.ForeignKey(Photo, related_name="covers", blank=True, null=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='albums')
 
     def __repr__(self):
