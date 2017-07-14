@@ -28,6 +28,10 @@ class Photo(models.Model):
     def __repr__(self):
         return "<Photo: {}>".format(self.title)
 
+    def __str__(self):
+        """Display title."""
+        return self.title
+
 
 class Album(models.Model):
     title = models.CharField(max_length=100)
@@ -46,3 +50,7 @@ class Album(models.Model):
 
     def __repr__(self):
         return "<Album: {}>".format(self.title)
+
+    def __str__(self):
+        """Display title."""
+        return self.title
