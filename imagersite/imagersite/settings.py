@@ -34,7 +34,7 @@ LOGIN_REDIRECT_URL = '/profile/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-TEMPLATE_DEBUG = ''
+# TEMPLATE_DEBUG = DEBUG
 
 
 # Application definition
