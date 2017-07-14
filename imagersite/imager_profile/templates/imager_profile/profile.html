@@ -1,0 +1,22 @@
+{% extends "imagersite/base.html" %}
+
+{% block body %}
+    <h3>{{ the_user.username }}</h3>
+    <p>Social Status: {{ the_user.social_status }}</p>
+    <p>Albums: {{ albums_pub }} (Public)
+    {% if albums_pri %}, {{ albums_pri }} (Private){% endif %}</p>
+    <p>Photos: {{ photos_pub }} (Public)
+    {% if photos_pri %}, {{ photos_pri }} (Private){% endif %}</p>
+    {% if albums %}
+    <h5>Albums:</h5>
+    <ul>
+        {% for album in albums %}
+        <li>
+            <a href="{% url 'imager_images:album' album.id %}">{{ album.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No albums yet.</p>
+    {% endif %}
+{% endblock %}
