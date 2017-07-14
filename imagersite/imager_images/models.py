@@ -15,8 +15,8 @@ class Photo(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=255, null=True)
     date_uploaded = models.DateField(auto_now_add=True)
-    date_published = models.DateField(auto_now=True)
-    date_modified = models.DateField(default=datetime.date.today)
+    date_published = models.DateField(default=datetime.date.today)
+    date_modified = models.DateField(auto_now=True)
     published = models.CharField(
         max_length=3,
         choices=SHARING_CHOICES,
@@ -33,8 +33,8 @@ class Album(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
     date_created = models.DateField(auto_now_add=True)
-    date_published = models.DateField(auto_now=True)
-    date_modified = models.DateField(default=datetime.date.today)
+    date_published = models.DateField(default=datetime.date.today)
+    date_modified = models.DateField(auto_now=True)
     published = models.CharField(
         max_length=3,
         choices=SHARING_CHOICES,

@@ -58,9 +58,9 @@ class AddPhotoView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         """Force the form to use the current user as the uploader."""
-        form.instance.author = self.request.user
+        form.instance.uploaded_by = self.request.user
         photo = form.save()
-        photo.author = self.request.user
+        photo.uploaded_by = self.request.user
         photo.save()
         return redirect("/images/library/")
 
@@ -77,8 +77,8 @@ class AddAlbumView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         """Force the form to use the current user as the creator."""
-        form.instance.owner = self.request.user
+        form.instance.created_by = self.request.user
         album = form.save()
-        album.owner = self.request.user
+        album.created_by = self.request.user
         album.save()
         return redirect("/images/library/")

@@ -4,7 +4,7 @@
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <p><input type="hidden" name="author" value="{{ user }}"/></p>
+        <p><input type="hidden" name="uploaded_by" value="{{ user }}"/></p>
         <input type="submit" value="Add New Photo"/>
     </form>
 
