@@ -11,10 +11,12 @@ Pillow==4.1.1
 prompt-toolkit==1.0.14
 psycopg2==2.7.1
 ptyprocess==0.5.1
+py==1.4.34
 Pygments==2.2.0
+pytest==3.1.3
 pytz==2017.2
 simplegeneric==0.8.1
 six==1.10.0
-sorl-thumbnail==12.3
+-e git+https://github.com/jazzband/sorl-thumbnail.git@b88fc32a68d1f754e54afe4424cf7a40d0f848a2#egg=sorl_thumbnail
 traitlets==4.3.2
 wcwidth==0.1.7
