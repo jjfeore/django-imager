@@ -4,7 +4,7 @@
 from django.conf.urls import url
 from django.views.generic import DetailView
 from imager_images.models import Photo, Album
-from imager_images.views import LibraryView, AddPhotoView, PhotosView, AddAlbumView, AlbumsView
+from imager_images.views import LibraryView, AddPhotoView, PhotosView, AddAlbumView, AlbumsView, EditAlbumView, EditPhotoView
 
 
 app_name = 'imager_images'
