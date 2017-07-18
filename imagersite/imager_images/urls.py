@@ -20,9 +20,11 @@ urlpatterns = [
     ), name="photo"),
     url(r'^albums/$', AlbumsView.as_view(), name="albums"),
     url(r'^albums/add/$', AddAlbumView.as_view(), name="add_album"),
+    url(r'^photos/(?P<pk>\d+)/edit/$', EditPhotoView.as_view(), name="edit_photo"),
     url(r'^albums/(?P<pk>\d+)/$', DetailView.as_view(
         model=Album,
         template_name="imager_images/album_detail.html",
         context_object_name="album"
-    ), name="album")
+    ), name="album"),
+    url(r'^albums/(?P<pk>\d+)/edit/$', EditAlbumView.as_view(), name="edit_album")
 ]

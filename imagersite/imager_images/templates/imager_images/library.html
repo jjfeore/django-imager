@@ -14,6 +14,7 @@
                 <img src="http://placehold.it/100x100" alt="No Cover">
             {% endif %}
             <a href="{% url 'imager_images:album' album.id %}">{{album.title}}</a>
+            <a href="{% url 'imager_images:edit_album' album.id %}">Edit Album</a>
         {% endfor %}
         </li>
     </ul>
@@ -26,6 +27,7 @@
             {% endthumbnail %}
 
             <a href="{% url 'imager_images:photo' photo.id %}">{{ photo.title }}</a>
+            <a href="{% url 'imager_images:edit_photo' photo.id %}">Edit Photo</a>
         {% endfor %}
         </li>
     </ul>

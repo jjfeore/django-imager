@@ -6,4 +6,5 @@
 <p>Uploaded: {{ photo.date_uploaded }}</p>
 <p>Published: {{ photo.date_published }}</p>
 <p>Modified: {{ photo.date_modified }}</p>
+<p><a href="{% url 'imager_images:edit_photo' photo.id %}">Edit Photo</a>
 {% endblock %}
