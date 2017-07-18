@@ -6,7 +6,10 @@ from django.urls import reverse_lazy
 from imager_profile.models import ImagerProfile
 from imager_images.models import Photo, Album
 from django.views.generic import DetailView
+from django.views.generic.edit import UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import redirect
+from imager_profile.forms import UserProfileForm
 
 
 class ProfileView(LoginRequiredMixin, DetailView):
@@ -54,3 +57,28 @@ class OtherProfileView(DetailView):
             "albums_pub": albums_pub,
             "photos_pub": photos_pub
         })
+
+
+class EditProfileView(LoginRequiredMixin, UpdateView):
+    """View to edit your profile."""
+
+    login_url = reverse_lazy("login")
+    template_name = "imager_profile/edit_profile.html"
+    model = ImagerProfile
+    form_class = UserProfileForm
+
+
+    def get_object(self):
+        """Return specified user."""
+        return ImagerProfile.objects.all().get(user=self.request.user)
+
+
+    def form_valid(self, form):
+        """Save on post."""
+        self.object = form.save()
+        self.object.user.first_name = form.cleaned_data['First Name']
+        self.object.user.last_name = form.cleaned_data['Last Name']
+        self.object.user.email = form.cleaned_data['Email']
+        self.object.user.save()
+        self.object.save()
+        return redirect("/profile")
