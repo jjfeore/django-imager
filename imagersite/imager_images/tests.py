@@ -7,6 +7,7 @@ from imager_images.models import Photo
 from django.contrib.auth.models import User
 from faker import Faker
 import factory
+import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -17,8 +18,8 @@ class PhotoFactory(factory.django.DjangoModelFactory):
 
     title = factory.Sequence(lambda n: "photo{}".format(n))
     image = SimpleUploadedFile(
-        name='somephoto.jpg',
-        content=open(os.path.join(BASE_DIR, 'MEDIA', 'photos', 'catcherrye.png'), 'rb').read(),
+        name='Django Photo',
+        content=open(os.path.join(BASE_DIR, 'MEDIA', 'photos', 'django.jpg'), 'rb').read(),
         content_type='image/jpeg'
     )
 
